@@ -16,6 +16,9 @@ import { db } from "@shc/db/client";
 
 type AuthObject = ReturnType<typeof getAuth>;
 
+// Demo mode check - db will be null in demo mode
+const isDemoMode = process.env.DEMO_MODE === "true";
+
 /**
  * 1. CONTEXT
  *
@@ -54,9 +57,11 @@ export const createTRPCContext = async (opts: {
   const source = opts.headers.get("x-trpc-source") ?? "unknown";
   console.log(">>> tRPC Request from", source, "by", userId);
 
+  // In demo mode, db is null - use type assertion for compatibility
+  // Database-dependent features won't work in demo mode
   return {
     userId,
-    db,
+    db: db as NonNullable<typeof db>,
   };
 };
 
