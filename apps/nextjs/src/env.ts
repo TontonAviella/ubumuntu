@@ -20,11 +20,11 @@ export const env = createEnv({
    * For them to be exposed to the client, prefix them with `NEXT_PUBLIC_`.
    */
   client: {
-    NEXT_PUBLIC_ROOT_DOMAIN: z.string().min(1),
-    NEXT_PUBLIC_SITE_URL: z.string().min(1),
-    NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string().min(1),
-    NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string().min(1),
-    NEXT_PUBLIC_FASTAPI_URL: z.string().min(1),
+    NEXT_PUBLIC_ROOT_DOMAIN: z.string().optional().default("localhost:3000"),
+    NEXT_PUBLIC_SITE_URL: z.string().optional().default("http://localhost:3000"),
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string().optional().default("/sign-in"),
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string().optional().default("/sign-up"),
+    NEXT_PUBLIC_FASTAPI_URL: z.string().optional().default("http://localhost:8000"),
   },
   /**
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
@@ -38,5 +38,5 @@ export const env = createEnv({
     NEXT_PUBLIC_FASTAPI_URL: process.env.NEXT_PUBLIC_FASTAPI_URL,
   },
   skipValidation:
-    !!process.env.CI || process.env.npm_lifecycle_event === "lint",
+    !!process.env.CI || !!process.env.VERCEL || process.env.npm_lifecycle_event === "lint",
 });
