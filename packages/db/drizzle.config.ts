@@ -12,5 +12,5 @@ export default {
     secretArn: Resource.MyPostgres.secretArn,
     resourceArn: Resource.MyPostgres.clusterArn,
   },
-  tablesFilter: ["scribeHC_*"],
+  tablesFilter: ["ubumuntu_*"],
 } satisfies Config;

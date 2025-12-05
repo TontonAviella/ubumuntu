@@ -2,8 +2,8 @@ import type { ConfigContext, ExpoConfig } from "@expo/config";
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: "scribeHC",
-  slug: "scribehc",
+  name: "Ubumuntu",
+  slug: "ubumuntu",
   scheme: "expo",
   version: "0.1.0",
   orientation: "portrait",
@@ -19,7 +19,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    bundleIdentifier: "com.scribehc.app",
+    bundleIdentifier: "com.ubumuntu.app",
     supportsTablet: true,
     usesAppleSignIn: true,
     config: {
@@ -27,7 +27,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
   },
   android: {
-    package: "com.scribehc.app",
+    package: "com.ubumuntu.app",
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#18181A",
@@ -50,7 +50,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       projectId: "bd3c6023-6da8-4e0d-8a0a-16c6eabd4cb7",
     },
   },
-  owner: "scribe-hc",
+  owner: "ubumuntu",
   plugins: [
     "expo-router",
     "expo-secure-store",

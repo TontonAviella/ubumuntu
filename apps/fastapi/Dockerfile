@@ -47,5 +47,8 @@ COPY ./api /app/api
 # Expose the port that the application listens on.
 EXPOSE 8000
 
-# Run the application.
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Default PORT for Railway (will be overridden by Railway's env)
+ENV PORT=8000
+
+# Run the application with shell form to expand $PORT
+CMD uvicorn api.main:app --host 0.0.0.0 --port $PORT

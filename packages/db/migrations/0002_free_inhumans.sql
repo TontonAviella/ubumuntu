@@ -1,0 +1,1 @@
+ALTER TABLE "scribeHC_exercise_attempt" ADD COLUMN "ai_feedback" jsonb;

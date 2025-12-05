@@ -22,16 +22,16 @@ if (env.NODE_ENV === "production") {
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.NODE_ENV === "production"
-      ? "https://scribeHCyour-domain.com"
+      ? "https://ubumuntu.app"
       : "http://localhost:3000",
   ),
-  title: "scribeHC",
-  description: "AI ambient scribe app for healthcare.",
+  title: "Ubumuntu",
+  description: "AI-powered speech and listening therapy app.",
   openGraph: {
-    title: "scribeHC",
-    description: "AI ambient scribe app for healthcare.",
-    url: "https://www.scribeHCyour-domain.com",
-    siteName: "scribeHC",
+    title: "Ubumuntu",
+    description: "AI-powered speech and listening therapy app.",
+    url: "https://ubumuntu.app",
+    siteName: "Ubumuntu",
   },
   twitter: {
     card: "summary_large_image",

@@ -1,4 +1,4 @@
-import { Clipboard, Cog, HomeIcon } from "lucide-react";
+import { BarChart3, Cog, HomeIcon, Mic, TrendingUp } from "lucide-react";
 
 import type { SidebarLink } from "~/components/sidebar-items";
 
@@ -15,12 +15,22 @@ export const defaultLinks: SidebarLink[] = [
 
 export const additionalLinks: AdditionalLinks[] = [
   {
-    title: "Entities",
+    title: "Therapy",
     links: [
       {
-        href: "/notes",
-        title: "Notes",
-        icon: Clipboard,
+        href: "/exercises",
+        title: "Exercises",
+        icon: Mic,
+      },
+      {
+        href: "/progress",
+        title: "Progress",
+        icon: TrendingUp,
+      },
+      {
+        href: "/analytics",
+        title: "Analytics",
+        icon: BarChart3,
       },
     ],
   },

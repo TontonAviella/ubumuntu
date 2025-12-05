@@ -17,9 +17,10 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
     CLERK_JWKS_URL: str = os.getenv("CLERK_JWKS_URL")
     CLERK_PEM_PUBLIC_KEY: str = os.getenv("CLERK_PEM_PUBLIC_KEY")
-    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY")
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+    GITHUB_TOKEN: str = os.getenv("GITHUB_TOKEN", "")  # For GitHub Models GPT-4o
 
-    model_config = SettingsConfigDict(env_file=".env")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
     openapi_url: str = "/openapi.json"
     API_VERSION: str = "/v1"
     ROOT: str = ROOT_PATH

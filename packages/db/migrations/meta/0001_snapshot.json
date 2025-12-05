@@ -1,0 +1,607 @@
+{
+  "id": "89474560-d784-49df-8974-7e4ca450e829",
+  "prevId": "772953ad-8e56-4c4e-9dad-bd5c5b58b300",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.scribeHC_note": {
+      "name": "scribeHC_note",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content": {
+          "name": "content",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "transcript": {
+          "name": "transcript",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.scribeHC_aac_board": {
+      "name": "scribeHC_aac_board",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_default": {
+          "name": "is_default",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "grid_columns": {
+          "name": "grid_columns",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 4
+        },
+        "grid_rows": {
+          "name": "grid_rows",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 4
+        },
+        "symbols": {
+          "name": "symbols",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.scribeHC_exercise_attempt": {
+      "name": "scribeHC_exercise_attempt",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "session_id": {
+          "name": "session_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "exercise_type": {
+          "name": "exercise_type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target_text": {
+          "name": "target_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "difficulty": {
+          "name": "difficulty",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 1
+        },
+        "transcription": {
+          "name": "transcription",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "overall_score": {
+          "name": "overall_score",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "clarity_score": {
+          "name": "clarity_score",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pace_score": {
+          "name": "pace_score",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fluency_score": {
+          "name": "fluency_score",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "word_scores": {
+          "name": "word_scores",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phoneme_errors": {
+          "name": "phoneme_errors",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "suggestions": {
+          "name": "suggestions",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "audio_url": {
+          "name": "audio_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "scribeHC_exercise_attempt_session_id_scribeHC_therapy_session_id_fk": {
+          "name": "scribeHC_exercise_attempt_session_id_scribeHC_therapy_session_id_fk",
+          "tableFrom": "scribeHC_exercise_attempt",
+          "tableTo": "scribeHC_therapy_session",
+          "columnsFrom": [
+            "session_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.scribeHC_exercise_library": {
+      "name": "scribeHC_exercise_library",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "exercise_type": {
+          "name": "exercise_type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category": {
+          "name": "category",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "target_text": {
+          "name": "target_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target_phonemes": {
+          "name": "target_phonemes",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "difficulty": {
+          "name": "difficulty",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 1
+        },
+        "instructions": {
+          "name": "instructions",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "audio_prompt_url": {
+          "name": "audio_prompt_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "usage_count": {
+          "name": "usage_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.scribeHC_progress_metric": {
+      "name": "scribeHC_progress_metric",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metric_type": {
+          "name": "metric_type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "exercise_type": {
+          "name": "exercise_type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "target_phoneme": {
+          "name": "target_phoneme",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "measured_at": {
+          "name": "measured_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.scribeHC_therapy_session": {
+      "name": "scribeHC_therapy_session",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "session_type": {
+          "name": "session_type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'active'"
+        },
+        "started_at": {
+          "name": "started_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "ended_at": {
+          "name": "ended_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "duration_seconds": {
+          "name": "duration_seconds",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "exercise_count": {
+          "name": "exercise_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "average_score": {
+          "name": "average_score",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "metadata": {
+          "name": "metadata",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.scribeHC_user_profile": {
+      "name": "scribeHC_user_profile",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "speech_condition": {
+          "name": "speech_condition",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "severity_level": {
+          "name": "severity_level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "target_phonemes": {
+          "name": "target_phonemes",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "difficulty_level": {
+          "name": "difficulty_level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 1
+        },
+        "preferred_speed": {
+          "name": "preferred_speed",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 1
+        },
+        "voice_profile_url": {
+          "name": "voice_profile_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "therapist_id": {
+          "name": "therapist_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "exercise_preferences": {
+          "name": "exercise_preferences",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "accessibility_settings": {
+          "name": "accessibility_settings",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "scribeHC_user_profile_user_id_unique": {
+          "name": "scribeHC_user_profile_user_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user_id"
+          ]
+        }
+      }
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

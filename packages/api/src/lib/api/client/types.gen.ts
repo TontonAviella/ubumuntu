@@ -2,6 +2,7 @@
 
 export interface Body_upload_transcribe_audio {
   file: Blob | File;
+  [key: string]: unknown;
 }
 
 export interface HTTPValidationError {

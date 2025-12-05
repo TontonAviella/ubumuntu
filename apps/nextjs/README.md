@@ -1,5 +1,5 @@
-# scribeHC Web Dashboard
+# Ubumuntu Web Dashboard
 
-Dashboard to manage the generated SOAP notes and account settings.
+Dashboard for managing speech therapy sessions, tracking progress, and viewing analytics.
 
 Deployed using SST Ion.

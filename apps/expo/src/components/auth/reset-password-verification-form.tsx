@@ -50,8 +50,9 @@ const ResetPasswordVerificationForm = ({
       } else {
         setError("Failed to reset password");
       }
-    } catch (err: unknown) {
-      setError(err.errors[0].message);
+    } catch (err) {
+      const clerkError = err as { errors?: Array<{ message: string }> };
+      setError(clerkError.errors?.[0]?.message ?? "An error occurred");
     } finally {
       setIsLoading(false);
     }

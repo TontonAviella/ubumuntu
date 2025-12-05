@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-When contributing to `scribeHC`, whether on GitHub or in other community spaces:
+When contributing to `Ubumuntu`, whether on GitHub or in other community spaces:
 
 - Be respectful, civil, and open-minded.
 - Before opening a new pull request, try searching through the [issue tracker](https://github.com/trevorpfiz/scribeHC/issues) for known issues or fixes.

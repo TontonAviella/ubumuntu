@@ -3,7 +3,7 @@
 export default $config({
   app(input) {
     return {
-      name: "scribe-hc",
+      name: "ubumuntu",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
       providers: {

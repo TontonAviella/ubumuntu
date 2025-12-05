@@ -57,17 +57,25 @@ export default function Dashboard() {
             )}
           </>
         )}
-        <View className="absolute bottom-4 left-4 right-4 h-[12%] flex-row justify-around rounded-3xl bg-gray-200 p-4 dark:bg-gray-800">
-          <View className="flex-1 px-20">
-            <Link href={{ pathname: "/(app)/record" }} asChild>
-              <Button
-                size="lg"
-                className="mx-2 flex-1 items-center rounded-full active:opacity-50"
-              >
-                <Mic size={40} strokeWidth={1.5} className="text-secondary" />
-              </Button>
-            </Link>
-          </View>
+        <View className="absolute bottom-4 left-4 right-4 h-[12%] flex-row items-center justify-around rounded-3xl bg-gray-200 p-4 dark:bg-gray-800">
+          <Link href={{ pathname: "/(therapy)" }} asChild>
+            <Button
+              size="lg"
+              variant="ghost"
+              className="items-center active:opacity-50"
+            >
+              <Text className="text-base font-medium text-foreground">Therapy</Text>
+            </Button>
+          </Link>
+          <Link href={{ pathname: "/(app)/record" }} asChild>
+            <Button
+              size="lg"
+              className="items-center rounded-full active:opacity-50"
+            >
+              <Mic size={40} strokeWidth={1.5} className="text-secondary" />
+            </Button>
+          </Link>
+          <View className="w-16" />
         </View>
       </View>
     </SafeAreaView>

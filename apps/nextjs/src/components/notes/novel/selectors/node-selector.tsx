@@ -19,8 +19,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@shc/ui/popover";
 export interface SelectorItem {
   name: string;
   icon: LucideIcon;
-  command: (editor: ReturnType<typeof useEditor>["editor"]) => void;
-  isActive: (editor: ReturnType<typeof useEditor>["editor"]) => boolean;
+  command: (editor: NonNullable<ReturnType<typeof useEditor>["editor"]>) => void;
+  isActive: (editor: NonNullable<ReturnType<typeof useEditor>["editor"]>) => boolean;
 }
 
 const items: SelectorItem[] = [

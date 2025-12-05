@@ -44,6 +44,8 @@ export function AISelector({ onOpenChange }: AISelectorProps) {
 
   const hasCompletion = completion.length > 0;
 
+  if (!editor) return null;
+
   return (
     <Command className="w-[350px]">
       {hasCompletion && (

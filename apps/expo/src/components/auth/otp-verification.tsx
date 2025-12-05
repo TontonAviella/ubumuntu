@@ -37,11 +37,11 @@ export const OTPVerification = (props: { onSuccess: () => void }) => {
           newCodes[i] = code;
         }
       });
-      refs[5].current?.focus();
+      refs[5]?.current?.focus();
     } else {
       newCodes[index] = text;
       if (text !== "" && index < 5) {
-        refs[index + 1].current?.focus();
+        refs[index + 1]?.current?.focus();
       }
     }
     setCodes(newCodes);
@@ -73,8 +73,9 @@ export const OTPVerification = (props: { onSuccess: () => void }) => {
 
       // handle verification success
       props.onSuccess();
-    } catch (err: unknown) {
-      setErrorMessages(err.errors?.[0]?.message || "Verification failed");
+    } catch (err) {
+      const clerkError = err as { errors?: Array<{ message: string }> };
+      setErrorMessages([clerkError.errors?.[0]?.message ?? "Verification failed"]);
       console.log(err);
     } finally {
       setIsLoading(false);
@@ -122,7 +123,7 @@ export const OTPVerification = (props: { onSuccess: () => void }) => {
             )}
           </Button>
           <Text className="mt-6 text-center">
-            By continuing, you agree to scribeHC's{" "}
+            By continuing, you agree to Ubumuntu's{" "}
             <Text className="underline">Terms of Service</Text> and{" "}
             <Text className="underline">Privacy Policy</Text>, and to receive
             periodic emails with updates.

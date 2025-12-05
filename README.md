@@ -3,14 +3,10 @@
 <!-- PROJECT LOGO -->
 <br>
 <div align="center">
-  <a href="https://github.com/trevorpfiz/scribeHC">
-    <img src="https://github.com/trevorpfiz/scribeHC/assets/24904780/0e15369e-2550-42da-84ad-0f224af1ac8a" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">scribeHC - AI Ambient Scribe for Healthcare</h3>
+<h3 align="center">Ubumuntu - AI Speech & Listening Therapy</h3>
 
   <p align="center">
-    This is an open source AI ambient scribe app for healthcare. Record patient-doctor conversations and automatically generate SOAP notes based on the transcripts. Make sure you are HIPAA compliant before using this in a healthcare setting.
+    Ubumuntu is an AI-powered speech and listening therapy app. Practice pronunciation with real-time feedback, track your progress, and improve your speech skills with personalized AI coaching.
   </p>
 </div>
 

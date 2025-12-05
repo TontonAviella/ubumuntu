@@ -15,6 +15,12 @@ async def info():
     return [{"Status": "API Running"}]
 
 
+@info_router.get("/health", status_code=200, tags=["health"])
+async def health_check():
+    """Health check endpoint for Railway deployment"""
+    return {"status": "healthy", "service": "ubumuntu-api"}
+
+
 def custom_generate_unique_id(route: APIRoute):
     """Generates a custom ID when using the TypeScript Generator Client
 
@@ -37,26 +43,16 @@ def get_application():
         openapi_url=settings.openapi_url,
     )
 
-    origins = ["http://localhost:3000/"]  # TODO: Change to your production URL
-
-    if settings.ENVIRONMENT == "development":
-        logger = logging.getLogger("uvicorn")
-        logger.warning("Running in development mode - allowing CORS for all origins")
-        _app.add_middleware(
-            CORSMiddleware,
-            allow_origins=["*"],
-            allow_credentials=True,
-            allow_methods=["*"],
-            allow_headers=["*"],
-        )
-    else:
-        _app.add_middleware(
-            CORSMiddleware,
-            allow_origins=origins,
-            allow_credentials=True,
-            allow_methods=["*"],
-            allow_headers=["*"],
-        )
+    # Allow all origins for demo - in production, restrict to specific domains
+    logger = logging.getLogger("uvicorn")
+    logger.info("Enabling CORS for all origins (demo mode)")
+    _app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     _app.include_router(api_router, prefix=settings.API_VERSION)
     _app.include_router(info_router, tags=[""])
