@@ -1,8 +1,12 @@
-Generate requirements.txt using Poetry package manager:
+---
+title: Ubumuntu API
+emoji: 🗣️
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
 
-```
-poetry export --without-hashes --format=requirements.txt > requirements.txt
-```
+# Ubumuntu Speech Therapy API
 
-Python monorepo info:
-https://medium.com/@ashley.e.shultz/python-mono-repo-with-only-built-in-tooling-7c2d52c2fc66
+FastAPI backend for the Ubumuntu speech therapy application.

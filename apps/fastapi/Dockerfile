@@ -45,10 +45,11 @@ USER appuser
 COPY ./api /app/api
 
 # Expose the port that the application listens on.
-EXPOSE 8000
+# HuggingFace Spaces uses 7860, others use PORT env var
+EXPOSE 7860
 
-# Default PORT for Railway (will be overridden by Railway's env)
-ENV PORT=8000
+# Default PORT (HuggingFace=7860, Railway/Render use env var)
+ENV PORT=7860
 
 # Run the application with shell form to expand $PORT
 CMD uvicorn api.main:app --host 0.0.0.0 --port $PORT
